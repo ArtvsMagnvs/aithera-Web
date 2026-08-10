@@ -1,0 +1,14 @@
+{
+  "name": "aithera-autopilot-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Aithera Autopilot — landing, consultoría y servidor Node.",
+  "main": "server/server.js",
+  "scripts": {
+    "start": "node server/server.js"
+  },
+  "optionalDependencies": {
+    "nodemailer": "^6.9.14"
+  },
+  "engines": { "node": ">=16" }
+}
