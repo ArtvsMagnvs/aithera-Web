@@ -1,0 +1,14 @@
+{
+  "name": "aithera-autopilot-server",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Servidor de la web de Aithera Autopilot: estáticos + API de solicitudes de consultoría.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "optionalDependencies": {
+    "nodemailer": "^6.9.14"
+  },
+  "engines": { "node": ">=16" }
+}
