@@ -11,37 +11,10 @@
 <meta property="og:description" content="Aithera for Windows. Local first: everything runs on your own computer.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aithera.tech/download.html">
+<meta property="og:image" content="https://aithera.tech/assets/img/hero.jpg">
+<link rel="preload" href="assets/fonts/saira-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/styles.css">
-<style>
-  /* Solo lo que esta pagina necesita y el sistema de diseno no tenia.
-     Se reutilizan sus tokens (--green, --blue, --gold, --line...) para que
-     no haya un segundo lenguaje visual. */
-  .dl-hero      { text-align:center; padding:12px 0 28px }
-  .dl-hero h1   { margin:0 0 10px }
-  .dl-lead      { color:var(--muted); max-width:56ch; margin:0 auto }
-  .dl-cta       { display:flex; flex-direction:column; align-items:center; gap:10px; margin:28px 0 8px }
-  .dl-big       { display:inline-flex; align-items:center; gap:12px; padding:16px 28px;
-                  border-radius:12px; border:1px solid rgba(95,224,143,.45);
-                  background:rgba(95,224,143,.10); color:var(--green);
-                  font-weight:600; font-size:1.05rem; text-decoration:none; transition:background .15s }
-  .dl-big:hover { background:rgba(95,224,143,.18) }
-  .dl-big svg   { width:22px; height:22px }
-  .dl-meta      { color:var(--muted); font-size:.85rem }
-  .dl-grid      { display:grid; gap:14px; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); margin:26px 0 }
-  .dl-card      { border:1px solid var(--line); border-radius:12px; padding:16px 18px; background:rgba(255,255,255,.015) }
-  .dl-card h3   { margin:0 0 8px; font-size:.95rem }
-  .dl-card ul   { margin:0; padding-left:18px; color:var(--muted); font-size:.88rem; line-height:1.65 }
-  .dl-warn      { border:1px solid rgba(224,173,87,.35); background:rgba(224,173,87,.07);
-                  border-radius:12px; padding:18px 20px; margin:26px 0 }
-  .dl-warn h2   { margin:0 0 10px; font-size:1.02rem; color:var(--gold) }
-  .dl-steps     { counter-reset:s; list-style:none; padding:0; margin:12px 0 0 }
-  .dl-steps li  { counter-increment:s; position:relative; padding-left:34px; margin-bottom:9px; color:var(--muted) }
-  .dl-steps li::before { content:counter(s); position:absolute; left:0; top:0;
-                  width:22px; height:22px; border-radius:50%; display:grid; place-items:center;
-                  font-size:.75rem; color:var(--gold); border:1px solid rgba(224,173,87,.45) }
-  .dl-hash      { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.8rem;
-                  color:var(--muted); word-break:break-all }
-</style>
 </head>
 <body>
 
@@ -64,29 +37,29 @@
   <main class="legal">
     <a class="back" href="index.html"><svg><use href="#i-arrow"/></svg>Back</a>
 
-    <section class="dl-hero">
+    <div class="dl__hero">
       <h1>Download Aithera</h1>
-      <p class="dl-lead">
-        Aithera runs on your own computer. Your files, your email and your conversations
-        are processed locally and their content never reaches us.
+      <p>
+        Aithera runs on your own computer. Your files, your email and your
+        conversations are processed locally, and their content never reaches us.
       </p>
 
-      <div class="dl-cta">
+      <div class="dl__cta">
         <!-- Apunta a la release MÁS RECIENTE, no a una versión fija: así esta
              página no caduca cada vez que se publica una actualización. -->
-        <a class="dl-big" href="https://github.com/ArtvsMagnvs/aithera-releases/releases/latest">
-          <svg><use href="#i-down"/></svg>
-          <span>Download for Windows</span>
+        <a class="btn btn--green" href="https://github.com/ArtvsMagnvs/aithera-releases/releases/latest">
+          Download for Windows <svg><use href="#i-down"/></svg>
         </a>
-        <p class="dl-meta">
-          Windows 10 or 11, 64-bit · about 990&nbsp;MB to download ·
+        <p class="dl__meta">
+          Windows 10 or 11, 64-bit · about 990&nbsp;MB ·
           <a href="https://github.com/ArtvsMagnvs/aithera-releases/releases/latest">all versions and release notes</a>
         </p>
       </div>
-    </section>
+    </div>
 
-    <div class="dl-grid">
-      <div class="dl-card">
+    <h2>Before you start</h2>
+    <div class="dl__grid">
+      <div class="dl__cell">
         <h3>What you need</h3>
         <ul>
           <li>Windows 10 or 11, 64-bit.</li>
@@ -95,82 +68,73 @@
           <li>No account required to use it.</li>
         </ul>
       </div>
-
-      <div class="dl-card">
+      <div class="dl__cell">
         <h3>What's inside</h3>
         <ul>
           <li>Everything needed to run — no Python or extra tooling to install.</li>
-          <li>The multilingual memory model and the speech model, so it works offline
-              from the first launch.</li>
-          <li>Automatic updates: Aithera checks for new versions and asks before
-              installing them.</li>
+          <li>The memory and speech models, so it works offline from the first launch.</li>
+          <li>Automatic updates, which always ask before installing.</li>
         </ul>
       </div>
-
-      <div class="dl-card">
+      <div class="dl__cell">
         <h3>First launch</h3>
         <ul>
-          <li>It takes a moment to prepare its database the first time. That's normal.</li>
-          <li>A short setup assistant walks you through language, AI model, voice
-              and permissions. Every step can be skipped.</li>
-          <li>You can connect your own AI providers, or run models on your machine.</li>
+          <li>It takes a moment to prepare its database. That's normal.</li>
+          <li>A short assistant sets up language, model, voice and permissions.</li>
+          <li>Every step can be skipped and changed later.</li>
         </ul>
       </div>
     </div>
 
     <!-- ==================================================================
          EL AVISO DE SMARTSCREEN.
-         Va aquí arriba y con detalle a propósito: es lo primero con lo que
-         se topa quien descarga, y no decirlo haría que la gente pensara que
-         el archivo está infectado. Se explica la causa REAL (falta de
-         certificado de firma, que cuesta dinero y no tiene nada que ver con
-         la seguridad del archivo) y se dan los pasos exactos.
+         Va destacado y con detalle a propósito: es lo primero con lo que se
+         topa quien descarga, y callarlo haría pensar que el archivo está
+         infectado. Se explica la causa REAL (falta de certificado de firma,
+         que cuesta dinero y no dice nada de la seguridad del archivo) y se
+         dan los pasos exactos.
     =================================================================== -->
-    <section class="dl-warn">
-      <h2>Windows will show you a warning. Here's why, and what to do</h2>
-      <p style="color:var(--muted); margin:0">
+    <section class="dl__warn">
+      <h2>Windows will warn you. Here's why, and what to do</h2>
+      <p>
         Aithera is in beta and the installer is <b>not signed with a code-signing
-        certificate</b> yet. Those certificates are expensive and issued to registered
-        companies, so small and early-stage software very often ships without one.
-        When that's the case, Windows SmartScreen shows a blue
-        <b>"Windows protected your PC"</b> screen for <i>any</i> program it hasn't seen
-        many times before. It is not a virus detection — it's Windows saying
-        "I don't recognise the publisher".
+        certificate</b> yet. Those are expensive and issued to registered companies,
+        so early-stage software very often ships without one. When that's the case,
+        Windows SmartScreen shows a blue <b>"Windows protected your PC"</b> screen
+        for <i>any</i> program it hasn't seen many times before. It is not a virus
+        detection — it's Windows saying it doesn't recognise the publisher.
       </p>
-      <ol class="dl-steps">
+      <ol class="dl__steps">
         <li>Run the installer you downloaded.</li>
         <li>When the blue screen appears, click <b>More info</b>.</li>
         <li>Click <b>Run anyway</b>.</li>
       </ol>
-      <p style="color:var(--muted); margin:14px 0 0; font-size:.88rem">
-        If you'd rather verify the file yourself first, every release publishes the
+      <p>
+        If you'd rather check the file first, every release publishes the
         <b>SHA-256</b> checksum of the installer on its
         <a href="https://github.com/ArtvsMagnvs/aithera-releases/releases/latest">release page</a>.
-        You can check it in PowerShell before running anything:
+        You can verify it in PowerShell before running anything:
       </p>
-      <p class="dl-hash" style="margin:8px 0 0">
-        Get-FileHash "$HOME\Downloads\Aithera Setup 1.5.1-3.exe" -Algorithm SHA256
-      </p>
-      <p style="color:var(--muted); margin:10px 0 0; font-size:.88rem">
-        Your antivirus may also flag it for the same reason (an unsigned installer that
-        writes a lot of files). If that happens and you'd rather not continue, that's a
-        perfectly reasonable choice — write to us and we'll help.
+      <p class="dl__hash">Get-FileHash "$HOME\Downloads\Aithera Setup 1.5.1-3.exe" -Algorithm SHA256</p>
+      <p>
+        Your antivirus may flag it for the same reason. If it does and you'd rather
+        not continue, that's a perfectly reasonable choice — write to us and we'll help.
       </p>
     </section>
 
     <h2>Your data</h2>
     <p>
-      Aithera keeps everything on your machine. Uninstalling removes the program and its
-      data. Optional, anonymous technical diagnostics can be turned off in
-      <b>Settings → General</b>, and you can see exactly what would be sent before it goes.
-      The details are in the <a href="privacy.html">Privacy Policy</a> and the
+      Aithera keeps everything on your machine. Uninstalling removes the program and
+      its data. Optional, anonymous technical diagnostics can be turned off in
+      <b>Settings → General</b>, and you can see exactly what would be sent before it
+      goes. The details are in the <a href="privacy.html">Privacy Policy</a> and the
       <a href="terms.html">Terms of Use</a>.
     </p>
 
     <h2>Need a hand?</h2>
     <p>
-      Write to <a href="mailto:hola@aithera.tech">hola@aithera.tech</a> — including what
-      you were doing and what you saw helps a lot.
+      Write to <a href="mailto:hola@aithera.tech">hola@aithera.tech</a> — telling us
+      what you were doing and what you saw helps a lot.
     </p>
   </main>
 

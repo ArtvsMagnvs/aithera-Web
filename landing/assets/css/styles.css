@@ -859,7 +859,12 @@ ul { margin: 0; padding: 0; list-style: none; }
 .foot__cr { font-size: 10.5px; color: var(--txt-4); }
 
 /* ---------- 11. Páginas legales ---------- */
-.legal { max-width: 760px; padding: 76px var(--pad) 96px; }
+/* [2026-08-19] LE FALTABA EL CENTRADO. `.legal` acota el ancho a 760px pero
+   no tenía margen automático, así que en pantallas anchas el texto quedaba
+   pegado al borde izquierdo con todo el hueco a la derecha. Afectaba a las
+   cinco páginas que usan esta clase (privacidad, condiciones, descarga,
+   entrar, cuenta) — se arregla en el único sitio donde estaba el fallo. */
+.legal { max-width: 760px; margin-inline: auto; padding: 76px var(--pad) 96px; }
 .legal h1 { font-size: clamp(26px, 3vw, 36px); font-weight: 200; letter-spacing: 0.05em; margin-bottom: 10px; }
 .legal .updated { font-size: 12px; color: var(--txt-4); margin-bottom: 40px; }
 .legal h2 {
@@ -888,6 +893,72 @@ ul { margin: 0; padding: 0; list-style: none; }
 }
 .legal .back:hover { color: var(--txt); }
 .legal .back svg { width: 14px; height: 14px; transform: rotate(180deg); }
+
+
+/* ---------- 11b. Descarga ---------- */
+/* Piezas propias de download.html. Usan los tokens y las formas del sitio:
+   bordes de 1px con `--line-2`, radio 3-4px como `.btn`/`.access`, y la
+   tipografía de display para lo que es "interfaz". */
+.dl__hero { text-align: center; margin-bottom: 46px; }
+.dl__cta { display: flex; flex-direction: column; align-items: center; gap: 14px; margin: 34px 0 0; }
+.dl__meta { font-size: 12px; color: var(--txt-3); }
+.dl__grid { display: grid; gap: 1px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            background: var(--line); border: 1px solid var(--line); margin: 8px 0 12px; }
+.dl__cell { background: var(--bg); padding: 22px 20px; }
+.dl__cell h3 { font-family: var(--f-d); font-size: 11px; letter-spacing: 0.19em;
+               text-transform: uppercase; color: var(--txt-3); margin: 0 0 12px; font-weight: 400; }
+.dl__cell ul { margin: 0; }
+.dl__warn { border: 1px solid rgba(224, 173, 87, 0.28); background: rgba(224, 173, 87, 0.05);
+            border-radius: 4px; padding: 30px 32px; margin: 42px 0 0; }
+.dl__warn h2 { border-top: none; padding-top: 0; margin-top: 0; color: var(--gold); }
+.dl__steps { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 11px; counter-reset: s; }
+.dl__steps li { counter-increment: s; padding-left: 34px; position: relative; }
+.dl__steps li::before {
+  content: counter(s); border: 1px solid rgba(224, 173, 87, 0.4); border-radius: 50%;
+  width: 22px; height: 22px; top: 1px; left: 0; position: absolute;
+  display: grid; place-items: center; font-family: var(--f-d); font-size: 10.5px; color: var(--gold);
+}
+.dl__hash { font-family: ui-monospace, "Cascadia Mono", Menlo, monospace; font-size: 11.5px;
+            color: var(--txt-3); background: var(--panel); border: 1px solid var(--line);
+            border-radius: 3px; padding: 11px 13px; margin: 10px 0 0; word-break: break-all; }
+
+
+/* ---------- 11c. Cuenta (entrar / dispositivos) ---------- */
+/* Mismo criterio que 11b: se reutiliza `.legal` para el marco y `.btn` para
+   las acciones; aquí solo vive lo que el sistema no tenía (campos de
+   formulario y filas de sesión), con sus tokens y sus formas. */
+.au { max-width: 420px; margin-inline: auto; }
+.au__f { display: grid; gap: 16px; margin-top: 26px; }
+.au__lab { display: block; font-family: var(--f-d); font-size: 10.5px; letter-spacing: 0.18em;
+           text-transform: uppercase; color: var(--txt-3); margin-bottom: 8px; }
+.au__in { width: 100%; padding: 13px 14px; border: 1px solid var(--line-2); border-radius: 3px;
+          background: var(--panel); color: var(--txt); font-family: var(--f-b); font-size: 13.5px; }
+.au__in:focus { outline: none; border-color: var(--line-3); }
+.au__msg { font-size: 12.5px; padding: 12px 14px; border-radius: 3px; margin: 0; }
+.au__msg--err { color: #ff9a9a; border: 1px solid rgba(255, 140, 140, 0.28); background: rgba(255, 140, 140, 0.06); }
+.au__msg--ok { color: var(--green); border: 1px solid rgba(95, 224, 143, 0.28); background: rgba(95, 224, 143, 0.06); }
+.au__alt { text-align: center; font-size: 12.5px; color: var(--txt-3); margin-top: 24px; }
+.au__alt button { background: none; border: none; padding: 0; font: inherit; color: var(--green);
+                  cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+.au__sep { display: flex; align-items: center; gap: 14px; margin: 30px 0 18px;
+           font-family: var(--f-d); font-size: 10px; letter-spacing: 0.2em;
+           text-transform: uppercase; color: var(--txt-4); }
+.au__sep::before, .au__sep::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.au__oauth { display: grid; gap: 10px; }
+.au__oauth .btn { width: 100%; justify-content: center; opacity: 0.45; cursor: not-allowed; }
+
+.ses { display: flex; align-items: center; gap: 16px; padding: 15px 0; border-top: 1px solid var(--line); }
+.ses:first-of-type { border-top: none; }
+.ses__i { flex: 1; min-width: 0; }
+.ses__d { font-size: 13.5px; color: var(--txt); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ses__m { font-size: 11.5px; color: var(--txt-4); margin-top: 3px; }
+.ses__now { font-family: var(--f-d); font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+            color: var(--green); border: 1px solid rgba(95, 224, 143, 0.35); border-radius: 3px; padding: 4px 10px; }
+.btn--sm { padding: 9px 16px; font-size: 10px; }
+.btn--danger { border-color: rgba(255, 140, 140, 0.3); color: #ff9a9a; }
+.btn--danger:hover { border-color: rgba(255, 140, 140, 0.55); background: rgba(255, 140, 140, 0.07); }
+.danger-zone { border: 1px solid rgba(255, 140, 140, 0.22); border-radius: 4px; padding: 28px 30px; margin-top: 40px; }
+.danger-zone h2 { border-top: none; padding-top: 0; margin-top: 0; color: #ff9a9a; }
 
 /* ---------- 12. Responsive ---------- */
 /* La cabecera es lo primero que se queda sin sitio: se aprieta por pasos */

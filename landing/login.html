@@ -7,35 +7,9 @@
 <meta name="description" content="Sign in to your Aithera account.">
 <meta name="robots" content="noindex">
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="assets/fonts/saira-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/styles.css">
-<style>
-  .au        { max-width:420px; margin:0 auto; padding:8px 0 40px }
-  .au h1     { margin:0 0 6px; font-size:1.5rem }
-  .au__sub   { color:var(--muted); margin:0 0 22px; font-size:.92rem }
-  .au__f     { display:flex; flex-direction:column; gap:12px }
-  .au__lab   { font-size:.82rem; color:var(--muted); margin-bottom:5px; display:block }
-  .au__in    { width:100%; padding:11px 13px; border-radius:9px; border:1px solid var(--line);
-               background:rgba(255,255,255,.02); color:var(--ink); font:inherit; font-size:.94rem }
-  .au__in:focus { outline:none; border-color:rgba(90,169,239,.55) }
-  .au__go    { padding:12px; border-radius:9px; border:1px solid rgba(95,224,143,.45);
-               background:rgba(95,224,143,.12); color:var(--green); font:inherit; font-weight:600;
-               cursor:pointer; transition:background .15s }
-  .au__go:hover:not(:disabled) { background:rgba(95,224,143,.2) }
-  .au__go:disabled { opacity:.5; cursor:default }
-  .au__msg   { font-size:.86rem; padding:10px 12px; border-radius:8px; margin:0 }
-  .au__err   { color:#ff8f8f; background:rgba(255,120,120,.08); border:1px solid rgba(255,120,120,.25) }
-  .au__ok    { color:var(--green); background:rgba(95,224,143,.08); border:1px solid rgba(95,224,143,.25) }
-  .au__alt   { text-align:center; color:var(--muted); font-size:.86rem; margin:18px 0 0 }
-  .au__alt button { background:none; border:none; color:var(--blue); cursor:pointer; font:inherit; padding:0 }
-  .au__sep   { display:flex; align-items:center; gap:12px; margin:22px 0; color:var(--muted); font-size:.78rem }
-  .au__sep::before,.au__sep::after { content:""; flex:1; height:1px; background:var(--line) }
-  .au__oauth { display:flex; flex-direction:column; gap:9px }
-  .au__ob    { padding:11px; border-radius:9px; border:1px solid var(--line); background:transparent;
-               color:var(--muted); font:inherit; font-size:.9rem; cursor:not-allowed; opacity:.55 }
-  .au__note  { font-size:.78rem; color:var(--muted); text-align:center; margin:8px 0 0 }
-  .au__opt   { border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin:0 0 20px;
-               color:var(--muted); font-size:.85rem }
-</style>
 </head>
 <body>
 
@@ -59,18 +33,18 @@
       <a class="back" href="index.html"><svg><use href="#i-arrow"/></svg>Back</a>
 
       <h1 id="title">Sign in</h1>
-      <p class="au__sub" id="sub">Your account syncs your settings across devices.</p>
+      <p class="dl__meta" id="sub">Your account syncs your settings across devices.</p>
 
       <!-- LA HONESTIDAD PRIMERO: Aithera funciona sin cuenta, y decirlo aquí
            evita que alguien crea que necesita registrarse para usarla. -->
-      <p class="au__opt">
+      <p class="au__msg au__msg--ok">
         You don't need an account to use Aithera — it runs on your computer and
         works fully offline. An account is only for managing your devices.
         <a href="download.html">Download it here</a>.
       </p>
 
       <!-- Aviso del flujo de escritorio: se rellena solo si venimos de la app. -->
-      <p class="au__msg au__ok" id="desktopNote" hidden></p>
+      <p class="au__msg au__msg--ok" id="desktopNote" hidden></p>
 
       <form class="au__f" id="form" novalidate>
         <div>
@@ -81,8 +55,8 @@
           <label class="au__lab" for="pass">Password</label>
           <input class="au__in" id="pass" type="password" autocomplete="current-password" required>
         </div>
-        <p class="au__msg au__err" id="err" hidden></p>
-        <button class="au__go" id="go" type="submit">Sign in</button>
+        <p class="au__msg au__msg--err" id="err" hidden></p>
+        <button class="btn btn--green" id="go" type="submit">Sign in</button>
       </form>
 
       <p class="au__alt">
@@ -102,10 +76,10 @@
              (server/auth.js → oauth()). Pasos exactos para activarlos en
              aithera-tech/README-DESPLIEGUE.md.
         ============================================================= -->
-        <button class="au__ob" type="button" disabled>Continue with Google — coming soon</button>
-        <button class="au__ob" type="button" disabled>Continue with GitHub — coming soon</button>
+        <button class="btn" type="button" disabled>Continue with Google — coming soon</button>
+        <button class="btn" type="button" disabled>Continue with GitHub — coming soon</button>
       </div>
-      <p class="au__note">
+      <p class="dl__meta" style="text-align:center;margin-top:12px">
         Social sign-in is not enabled yet on this server.
       </p>
     </div>
