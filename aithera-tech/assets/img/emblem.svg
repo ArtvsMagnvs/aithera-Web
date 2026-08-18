@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 148" fill="none" role="img" aria-label="Aithera">
+<defs>
+  <radialGradient id="ec" cx="50%" cy="50%" r="50%">
+    <stop offset="0" stop-color="#ffffff"/><stop offset=".3" stop-color="#9ad8ff"/>
+    <stop offset="1" stop-color="#2b7fd0" stop-opacity="0"/></radialGradient>
+  <filter id="eb" x="-70%" y="-70%" width="240%" height="240%"><feGaussianBlur stdDeviation="3.4"/></filter>
+</defs>
+<path d="M 60.0 6.0 C 93.91666666666667 50.879999999999995, 116.52777777777779 102.56, 60.0 142.0 C 3.4722222222222143 102.56, 26.08333333333333 50.879999999999995, 60.0 6.0 Z" stroke="#cfe9ff" stroke-opacity="0.85" stroke-width="1.5"/>
+<path d="M 60.0 26.0 C 81.08333333333334 57.68, 95.13888888888889 94.16, 60.0 122.0 C 24.861111111111107 94.16, 38.916666666666664 57.68, 60.0 26.0 Z" stroke="#cfe9ff" stroke-opacity="0.62" stroke-width="1.2"/>
+<circle cx="60.0" cy="74.0" r="26" fill="url(#ec)" opacity=".55" filter="url(#eb)"/>
+<circle cx="60.0" cy="74.0" r="9" fill="url(#ec)"/>
+<circle cx="60.0" cy="74.0" r="2.6" fill="#ffffff"/>
+</svg>

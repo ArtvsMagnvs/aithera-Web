@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aithera — Your intelligent ecosystem</title>
+<meta name="description" content="Aithera connects everything, automates what matters and evolves with you. Your tasks, your projects, your data, your world. Unified — and running on your own computer.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<meta property="og:title" content="Aithera — Your intelligent ecosystem">
+<meta property="og:description" content="Aithera is not just software. It's your second mind.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aithera.tech/">
+<meta property="og:image" content="https://aithera.tech/assets/img/hero.jpg">
+<link rel="canonical" href="https://aithera.tech/">
+<link rel="preload" href="assets/fonts/saira-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ============================================================ ICONOS -->
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-hub" viewBox="0 0 24 24"><path d="M12 3 20 8v8l-8 5-8-5V8z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/><circle cx="12" cy="12" r="2.6" stroke="currentColor" stroke-width="1.4" fill="none"/></symbol>
+  <symbol id="i-avcs" viewBox="0 0 24 24"><path d="M12 2.6 20.2 7v10L12 21.4 3.8 17V7z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/><path d="M12 7.6 16.4 10v4L12 16.4 7.6 14v-4z" stroke="currentColor" stroke-width="1.3" fill="none" stroke-linejoin="round"/></symbol>
+  <symbol id="i-workspace" viewBox="0 0 24 24"><path d="M3 7.5A1.5 1.5 0 0 1 4.5 6h4l2 2.4h9A1.5 1.5 0 0 1 21 9.9v8.6A1.5 1.5 0 0 1 19.5 20h-15A1.5 1.5 0 0 1 3 18.5z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/></symbol>
+  <symbol id="i-agents" viewBox="0 0 24 24"><circle cx="12" cy="5.4" r="2.3" stroke="currentColor" stroke-width="1.4" fill="none"/><circle cx="4.8" cy="17.6" r="2.3" stroke="currentColor" stroke-width="1.4" fill="none"/><circle cx="19.2" cy="17.6" r="2.3" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M10.6 7.5 6.2 15.6M13.4 7.5l4.4 8.1M7.1 17.6h9.8" stroke="currentColor" stroke-width="1.3"/></symbol>
+  <symbol id="i-automations" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.4" stroke="currentColor" stroke-width="1.4" fill="none"/><circle cx="4.6" cy="6" r="1.9" stroke="currentColor" stroke-width="1.3" fill="none"/><circle cx="19.4" cy="6" r="1.9" stroke="currentColor" stroke-width="1.3" fill="none"/><circle cx="4.6" cy="18" r="1.9" stroke="currentColor" stroke-width="1.3" fill="none"/><circle cx="19.4" cy="18" r="1.9" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M6.4 7.1 10 10.4M17.6 7.1 14 10.4M6.4 16.9 10 13.6M17.6 16.9 14 13.6" stroke="currentColor" stroke-width="1.2"/></symbol>
+  <symbol id="i-memory" viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="3" stroke="currentColor" stroke-width="1.4" fill="none"/><rect x="9.2" y="9.2" width="5.6" height="5.6" rx="1.4" stroke="currentColor" stroke-width="1.3" fill="none"/><path d="M9 2.8v2.2M15 2.8v2.2M9 19v2.2M15 19v2.2M2.8 9H5M2.8 15H5M19 9h2.2M19 15h2.2" stroke="currentColor" stroke-width="1.2"/></symbol>
+  <symbol id="i-analytics" viewBox="0 0 24 24"><path d="M4 20V10M9.3 20V4.5M14.7 20v-7.6M20 20V8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M12.5 5.8 18.7 12l-6.2 6.2" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v13M5.8 11.5 12 17.7l6.2-6.2" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="9.5" rx="2.2" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M8.2 10.5V7.8a3.8 3.8 0 0 1 7.6 0v2.7" stroke="currentColor" stroke-width="1.4" fill="none"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3.2 19 6v6.2c0 4-2.9 7.2-7 8.6-4.1-1.4-7-4.6-7-8.6V6z" stroke="currentColor" stroke-width="1.4" fill="none" stroke-linejoin="round"/></symbol>
+  <symbol id="i-device" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M8.5 20h7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.4" fill="none"/><path d="M3.4 12h17.2M12 3.4c2.4 2.5 3.6 5.4 3.6 8.6S14.4 18.1 12 20.6c-2.4-2.5-3.6-5.4-3.6-8.6S9.6 5.9 12 3.4z" stroke="currentColor" stroke-width="1.3" fill="none"/></symbol>
+  <symbol id="i-crosshair" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6.4" stroke="currentColor" stroke-width="1.2" fill="none"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><path d="M12 1.6v4M12 18.4v4M1.6 12h4M18.4 12h4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-quote" viewBox="0 0 24 24"><path d="M9.6 5.4c-3 1.5-4.8 4-4.8 7v6.2h6.4v-6.4H7.8c0-2 .8-3.5 2.6-4.6zm9.6 0c-3 1.5-4.8 4-4.8 7v6.2h6.4v-6.4h-3.4c0-2 .8-3.5 2.6-4.6z" fill="currentColor"/></symbol>
+</svg>
+
+<!-- ============================================================ RAÍL -->
+<aside class="rail" aria-label="Ecosystem sections">
+  <a class="rail__logo" href="#top" aria-label="Aithera — home">
+    <img src="assets/img/emblem.svg" alt="" width="30" height="37">
+  </a>
+
+  <nav class="rail__nav">
+    <a class="rnav is-active" href="#hub"         data-spy="hub"><span class="rnav__ico"><svg><use href="#i-hub"/></svg></span><span class="rnav__t">Home</span></a>
+    <a class="rnav" href="#avcs"        data-spy="avcs"><span class="rnav__ico"><svg><use href="#i-avcs"/></svg></span><span class="rnav__t">AVCS</span></a>
+    <a class="rnav" href="#workspace"   data-spy="workspace"><span class="rnav__ico"><svg><use href="#i-workspace"/></svg></span><span class="rnav__t">Workspace</span></a>
+    <a class="rnav" href="#agents"      data-spy="agents"><span class="rnav__ico"><svg><use href="#i-agents"/></svg></span><span class="rnav__t">Agents</span></a>
+    <a class="rnav" href="#automations" data-spy="automations"><span class="rnav__ico"><svg><use href="#i-automations"/></svg></span><span class="rnav__t">Automations</span></a>
+    <a class="rnav" href="#memory"      data-spy="memory"><span class="rnav__ico"><svg><use href="#i-memory"/></svg></span><span class="rnav__t">Memory</span></a>
+    <a class="rnav" href="#analytics"   data-spy="analytics"><span class="rnav__ico"><svg><use href="#i-analytics"/></svg></span><span class="rnav__t">Analytics</span></a>
+  </nav>
+
+  <div class="rail__foot" aria-hidden="true">
+    <span class="rail__vtext">Aithera Ecosystem</span>
+    <span class="rail__orb"></span>
+    <span class="rail__state"><svg><use href="#i-crosshair"/></svg>Private beta</span>
+  </div>
+</aside>
+
+<!-- ============================================================ CUERPO -->
+<div class="shell" id="top">
+
+  <header class="top">
+    <a class="brand" href="#top">
+      <span class="brand__name">AITHERA</span>
+      <span class="brand__sub">Your intelligent ecosystem</span>
+    </a>
+
+    <nav class="tnav" id="tnav" aria-label="Main">
+      <a class="tnav__a is-active" href="#ecosystem">Ecosystem</a>
+      <a class="tnav__a" href="#features">Features</a>
+      <a class="tnav__a" href="#integrations">Integrations</a>
+      <a class="tnav__a" href="#docs">Docs</a>
+      <a class="tnav__a" href="#about">About</a>
+      <a class="tnav__a tnav__a--ext" href="https://autopilot.aithera.tech">Autopilot</a>
+    </nav>
+
+    <div class="top__right">
+      <!-- [2026-08-19] Estos dos botones apuntaban a `#access`, que es un
+           `mailto:`: la web PROMETÍA el producto y no había forma de
+           conseguirlo. Ahora llevan a la descarga real y a la cuenta. -->
+      <a class="signin" href="login.html">Sign in</a>
+      <a class="launch" href="download.html">
+        <span>Download</span>
+        <span class="launch__ico"><svg><use href="#i-arrow"/></svg></span>
+      </a>
+    </div>
+
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="tnav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main id="main">
+
+    <!-- ------------------------------------------------------- HERO -->
+    <section class="hero">
+      <div class="hero__media" aria-hidden="true">
+        <picture>
+          <source media="(max-width: 900px)" srcset="assets/img/hero-sm.jpg">
+          <img class="hero__bg" src="assets/img/hero.jpg" alt="" width="1536" height="1024" fetchpriority="high">
+        </picture>
+      </div>
+
+      <div class="hero__copy">
+        <h1 class="hero__h1">
+          <span>AITHERA</span>
+          <span>IS N<em>O</em>T JUST</span>
+          <span>S<em>O</em>FTWARE</span>
+        </h1>
+        <p class="hero__tag">It's your second mind.</p>
+        <p class="hero__lead">
+          Aithera connects everything, automates what matters and evolves with you.
+          Your tasks, your projects, your data, your world. Unified — and running
+          on your own computer.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn" href="#ecosystem">Enter the ecosystem</a>
+          <a class="btn btn--icon" href="#ecosystem" aria-label="Scroll to the ecosystem"><svg><use href="#i-down"/></svg></a>
+          <span class="hero__scroll"><i></i>Scroll<br>to explore</span>
+        </div>
+      </div>
+
+      <span class="hero__side" aria-hidden="true">
+        <svg class="hero__side-ico"><use href="#i-crosshair"/></svg>
+        <span class="hero__side-t">Aithera Core</span>
+      </span>
+
+      <div class="status" aria-label="System status">
+        <div class="status__row">
+          <span class="status__k">AVCS status</span>
+          <span class="status__v"><i class="dot"></i>Online</span>
+        </div>
+        <div class="status__row">
+          <span class="status__k">System health</span>
+          <span class="status__v status__v--num">100%</span>
+        </div>
+        <svg class="status__wave" viewBox="0 0 200 30" preserveAspectRatio="none" aria-hidden="true">
+          <polyline points="0.0,15.0 1.8,9.9 3.7,6.9 5.5,6.4 7.3,9.4 9.2,9.9 11.0,14.7 12.8,10.4 14.7,7.1 16.5,9.2 18.3,13.0 20.2,17.4 22.0,21.8 23.9,21.7 25.7,21.3 27.5,19.0 29.4,14.5 31.2,16.7 33.0,19.1 34.9,21.3 36.7,18.5 38.5,14.5 40.4,8.3 42.2,8.3 44.0,6.6 45.9,12.0 47.7,15.2 49.5,11.3 51.4,13.0 53.2,11.1 55.0,10.8 56.9,14.7 58.7,18.3 60.6,24.9 62.4,24.1 64.2,23.1 66.1,17.1 67.9,18.8 69.7,17.3 71.6,19.0 73.4,18.8 75.2,17.3 77.1,13.5 78.9,10.0 80.7,7.8 82.6,8.9 84.4,10.5 86.2,12.2 88.1,16.3 89.9,13.4 91.7,12.7 93.6,12.4 95.4,16.2 97.2,19.5 99.1,22.4 100.9,24.4 102.8,23.6 104.6,16.5 106.4,17.6 108.3,13.6 110.1,16.0 111.9,16.3 113.8,17.0 115.6,11.1 117.4,8.8 119.3,5.1 121.1,8.9 122.9,11.7 124.8,14.7 126.6,14.6 128.4,16.2 130.3,14.9 132.1,15.5 133.9,18.0 135.8,19.2 137.6,22.7 139.4,24.7 141.3,23.9 143.1,16.7 145.0,15.2 146.8,13.2 148.6,13.3 150.5,15.9 152.3,12.6 154.1,13.9 156.0,9.1 157.8,5.1 159.6,4.0 161.5,10.4 163.3,13.0 165.1,17.3 167.0,17.9 168.8,16.4 170.6,14.6 172.5,14.8 174.3,17.9 176.1,24.2 178.0,26.8 179.8,20.5 181.7,16.3 183.5,13.9 185.3,11.1 187.2,11.7 189.0,13.9 190.8,12.9 192.7,9.8 194.5,8.9 196.3,6.8 198.2,8.9 200.0,9.1" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------- TRÍADA -->
+    <section class="triad" aria-label="What Aithera does">
+      <article class="tcard tcard--blue">
+        <div class="tcard__body">
+          <h2 class="tcard__h">Unify</h2>
+          <p>Connect all your tools, accounts and data sources in one intelligent ecosystem.</p>
+          <a class="tcard__link" href="#integrations">Explore integrations <svg><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="tcard__viz"><img src="assets/img/viz-unify.svg" alt="" width="620" height="400" loading="lazy"></div>
+      </article>
+
+      <article class="tcard tcard--green">
+        <div class="tcard__body">
+          <h2 class="tcard__h">Automate</h2>
+          <p>Create smart automations with natural language. No code. Just your intent.</p>
+          <a class="tcard__link" href="#automations">Discover automations <svg><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="tcard__viz"><img src="assets/img/viz-automate.svg" alt="" width="620" height="400" loading="lazy"></div>
+      </article>
+
+      <article class="tcard tcard--gold">
+        <div class="tcard__body">
+          <h2 class="tcard__h">Evolve</h2>
+          <p>Aithera learns from you, adapts to your needs and helps you become unstoppable.</p>
+          <a class="tcard__link" href="#memory">See how it learns <svg><use href="#i-arrow"/></svg></a>
+        </div>
+        <div class="tcard__viz"><img src="assets/img/viz-evolve.svg" alt="" width="620" height="400" loading="lazy"></div>
+      </article>
+    </section>
+
+    <!-- ------------------------------------------------------- MÉTRICAS
+         OJO: cifras de ejemplo del diseño. Cámbialas por datos reales
+         (o quita el bloque) antes de publicar. Ver nota en el README. -->
+    <section class="metrics" aria-label="Community and results">
+      <div class="mcell mcell--people">
+        <span class="mcell__k">Trusted by innovators</span>
+        <div class="faces">
+          <span class="face face--1"></span><span class="face face--2"></span><span class="face face--3"></span>
+          <span class="face face--4"></span><span class="face face--5"></span><span class="face face--6"></span>
+          <span class="faces__more">+1.2K</span>
+        </div>
+        <p class="mcell__note">Join a new generation of creators, builders and dreamers.</p>
+      </div>
+
+      <div class="mcell">
+        <span class="mcell__k">Automations running</span>
+        <span class="mcell__n">24.7K</span>
+        <span class="mcell__s">This week</span>
+        <svg class="spark" viewBox="0 0 240 34" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,18.1 4.1,16.0 8.1,17.3 12.2,15.6 16.3,15.8 20.3,16.0 24.4,12.9 28.5,12.5 32.5,12.4 36.6,11.1 40.7,9.1 44.7,9.0 48.8,7.9 52.9,9.3 56.9,9.7 61.0,10.2 65.1,12.1 69.2,14.3 73.2,16.7 77.3,16.9 81.4,17.0 85.4,17.4 89.5,17.1 93.6,19.0 97.6,19.0 101.7,18.5 105.8,17.1 109.8,18.3 113.9,18.7 118.0,21.7 122.0,22.4 126.1,25.6 130.2,27.3 134.2,25.4 138.3,27.3 142.4,25.9 146.4,25.2 150.5,25.5 154.6,24.6 158.6,23.6 162.7,21.8 166.8,22.0 170.8,22.8 174.9,23.6 179.0,24.9 183.1,24.8 187.1,25.9 191.2,24.1 195.3,26.8 199.3,27.3 203.4,27.3 207.5,27.3 211.5,24.1 215.6,27.3 219.7,27.3 223.7,27.3 227.8,24.5 231.9,27.3 235.9,25.4 240.0,26.4" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg>
+      </div>
+
+      <div class="mcell">
+        <span class="mcell__k">Time saved</span>
+        <span class="mcell__n">1,248H</span>
+        <span class="mcell__s">This week</span>
+        <svg class="spark" viewBox="0 0 240 34" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,16.4 4.1,14.8 8.1,16.8 12.2,19.8 16.3,19.8 20.3,18.5 24.4,18.7 28.5,20.8 32.5,21.5 36.6,19.2 40.7,21.2 44.7,19.5 48.8,18.5 52.9,17.7 56.9,16.4 61.0,17.1 65.1,17.2 69.2,14.3 73.2,14.8 77.3,15.3 81.4,17.4 85.4,18.0 89.5,16.8 93.6,14.7 97.6,13.6 101.7,12.5 105.8,11.5 109.8,10.8 113.9,9.1 118.0,9.3 122.0,7.5 126.1,7.5 130.2,9.8 134.2,11.7 138.3,11.9 142.4,12.5 146.4,14.3 150.5,15.4 154.6,15.0 158.6,14.2 162.7,12.8 166.8,14.0 170.8,13.3 174.9,11.6 179.0,11.0 183.1,8.1 187.1,8.7 191.2,8.6 195.3,8.2 199.3,8.7 203.4,8.7 207.5,8.2 211.5,8.2 215.6,8.9 219.7,9.4 223.7,9.4 227.8,11.7 231.9,11.3 235.9,12.9 240.0,13.2" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg>
+      </div>
+
+      <div class="mcell">
+        <span class="mcell__k">Tasks completed</span>
+        <span class="mcell__n">98.6%</span>
+        <span class="mcell__s">Success rate</span>
+        <svg class="spark" viewBox="0 0 240 34" preserveAspectRatio="none" aria-hidden="true"><polyline points="0.0,17.6 4.1,16.2 8.1,17.1 12.2,18.1 16.3,17.7 20.3,15.9 24.4,15.4 28.5,16.7 32.5,17.6 36.6,17.6 40.7,16.6 44.7,16.7 48.8,17.1 52.9,17.3 56.9,17.2 61.0,18.0 65.1,18.0 69.2,17.7 73.2,16.0 77.3,16.0 81.4,15.0 85.4,16.1 89.5,15.2 93.6,15.1 97.6,15.7 101.7,15.7 105.8,14.7 109.8,15.1 113.9,14.0 118.0,12.4 122.0,10.6 126.1,8.9 130.2,10.3 134.2,9.9 138.3,10.7 142.4,9.7 146.4,9.6 150.5,9.4 154.6,8.9 158.6,9.5 162.7,9.4 166.8,10.2 170.8,8.0 174.9,8.5 179.0,8.5 183.1,10.4 187.1,12.0 191.2,12.9 195.3,12.0 199.3,11.2 203.4,10.9 207.5,11.6 211.5,9.6 215.6,10.8 219.7,11.7 223.7,11.2 227.8,12.2 231.9,12.0 235.9,10.9 240.0,11.0" fill="none" stroke="currentColor" stroke-width="1" vector-effect="non-scaling-stroke"/></svg>
+      </div>
+
+      <blockquote class="mquote">
+        <svg class="mquote__mark"><use href="#i-quote"/></svg>
+        <p>Aithera isn't a tool. It's a digital partner that actually understands me.</p>
+        <cite><span>— Alex R.</span><span>Entrepreneur</span></cite>
+        <img class="mquote__orb" src="assets/img/badge.svg" alt="" width="160" height="160" loading="lazy">
+      </blockquote>
+    </section>
+
+    <!-- ------------------------------------------------------- ECOSISTEMA -->
+    <section class="sec" id="ecosystem">
+      <header class="sec__head">
+        <span class="eyebrow">The ecosystem</span>
+        <h2>Seven parts. One system.</h2>
+        <p class="sec__lead">
+          Everything Aithera does lives in one place, and you don't have to learn the pieces
+          separately. Here's what each one is for.
+        </p>
+      </header>
+
+      <div class="wiki">
+        <article class="wcard" id="hub">
+          <div class="wcard__top"><span class="wcard__ico"><svg><use href="#i-hub"/></svg></span><h3>Home <span>The Hub</span></h3></div>
+          <p class="wcard__lead">Where your day starts.</p>
+          <p>The Hub shows what matters right now: what's waiting on a decision from you, what's already
+             running on its own, and what changed while you were away. One screen that tells you where
+             things stand — nothing buried three menus deep.</p>
+          <ul class="wlist">
+            <li>See everything at a glance</li>
+            <li>Pick up unfinished work where you left it</li>
+            <li>Start anything by describing it in a sentence</li>
+          </ul>
+        </article>
+
+        <article class="wcard" id="avcs">
+          <div class="wcard__top"><span class="wcard__ico"><svg><use href="#i-avcs"/></svg></span><h3>AVCS <span>The core</span></h3></div>
+          <p class="wcard__lead">The engine that fits your computer.</p>
+          <p>AVCS reads what your machine can handle and tunes Aithera to match. On a modest laptop it
+             stays light and quick; on a powerful desktop it makes full use of what you have. You never
+             open a settings panel to make this happen — it measures, decides and adjusts by itself.</p>
+          <ul class="wlist">
+            <li>Nothing to configure, ever</li>
+            <li>Runs smoothly across very different machines</li>
+            <li>Gets more capable if your hardware does</li>
+          </ul>
+        </article>
+
+        <article class="wcard" id="workspace">
+          <div class="wcard__top"><span class="wcard__ico"><svg><use href="#i-workspace"/></svg></span><h3>Workspace <span>Your projects</span></h3></div>
+          <p class="wcard__lead">Everything you're working on, kept together.</p>
+          <p>Files, notes, drafts and the context around them are organised by what you're actually
+             doing rather than by which folder they landed in. Come back a week later and the thread
+             is still intact.</p>
+          <ul class="wlist">
+            <li>Group work by project, not by file type</li>
+            <li>Keep documents and notes side by side</li>
+            <li>Recover the context of a project instantly</li>
+          </ul>
+        </article>
+
+        <article class="wcard" id="agents">
+          <div class="wcard__top"><span class="wcard__ico"><svg><use href="#i-agents"/></svg></span><h3>Agents <span>Your specialists</span></h3></div>
+          <p class="wcard__lead">Specialists you can put to work.</p>
+          <p>Each agent is good at one kind of job — writing, researching, reviewing, organising,
+             keeping track of things. You ask in plain language and the right one picks it up. No
+             flowcharts to draw, no scripts to write, nothing to learn first.</p>
+          <ul class="wlist">
+            <li>Delegate a whole task, not a single step</li>
+            <li>Put several specialists on the same job</li>
+            <li>Stay in control — you approve what matters</li>
+          </ul>
+        </article>
+
+        <article class="wcard" id="automations">
+          <div class="wcard__top"><span class="wcard__ico"><svg><use href="#i-automations"/></svg></span><h3>Automations <span>Work on its own</span></h3></div>
+          <p class="wcard__lead">Things that happen without you.</p>
+          <p>Describe what should happen and when, once. From then on it runs by itself — while
+             you're in a meeting, asleep, or away for the weekend. When something genuinely needs
+             your call, it waits for you instead of guessing.</p>
+          <ul class="wlist">
+            <li>Set it up by describing it, not by building it</li>
+            <li>Let routine work run unattended</li>
+            <li>Get interrupted only when it's worth it</li>
+          </ul>
+        </article>
+
+        <article class="wcard" id="memory">
+          <div class="wcard__top"><span class="wcard__ico"><svg><use href="#i-memory"/></svg></span><h3>Memory <span>It remembers</span></h3></div>
+          <p class="wcard__lead">You don't repeat yourself.</p>
+          <p>How you like things done, what you've already explained, the people and projects you
+             deal with every week. Aithera keeps that and uses it. It works in your own language,
+             and the picture it has of your work gets sharper the longer you use it.</p>
+          <ul class="wlist">
+            <li>Stop re-explaining the same context</li>
+            <li>Preferences carry across projects</li>
+            <li>Works in your language, not just English</li>
+          </ul>
+        </article>
+
+        <article class="wcard" id="analytics">
+          <div class="wcard__top"><span class="wcard__ico"><svg><use href="#i-analytics"/></svg></span><h3>Analytics <span>The honest account</span></h3></div>
+          <p class="wcard__lead">See what it's actually doing for you.</p>
+          <p>Plain numbers on what ran, what it saved you, what needed you and what didn't. No
+             dashboard to learn and no vanity charts — just where your time went and what Aithera
+             took off your plate.</p>
+          <ul class="wlist">
+            <li>See the hours you got back</li>
+            <li>Spot what's worth automating next</li>
+            <li>Check what ran while you were away</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------- FEATURES -->
+    <section class="sec sec--alt" id="features">
+      <header class="sec__head">
+        <span class="eyebrow">Features</span>
+        <h2>Built the other way round.</h2>
+        <p class="sec__lead">Most software asks you to adapt to it. This one adapts to you.</p>
+      </header>
+
+      <div class="fgrid">
+        <article class="fcard">
+          <h3>It runs on your computer</h3>
+          <p>Your email, calendar, files and conversations are processed on your own machine. The
+             content never leaves it and never reaches us.</p>
+        </article>
+        <article class="fcard">
+          <h3>You ask in plain language</h3>
+          <p>Describe the outcome you want. There's nothing to configure, no syntax to get right and
+             no builder to learn.</p>
+        </article>
+        <article class="fcard">
+          <h3>It works while you don't</h3>
+          <p>Routine work runs unattended — overnight, over the weekend, while you're in a meeting.</p>
+        </article>
+        <article class="fcard">
+          <h3>It fits your hardware</h3>
+          <p>Aithera measures what your machine can do and adjusts itself. Light on a laptop, fast on
+             a workstation.</p>
+        </article>
+        <article class="fcard">
+          <h3>It remembers you</h3>
+          <p>Your preferences, your context and the way you like things done carry over from one day
+             to the next.</p>
+        </article>
+        <article class="fcard">
+          <h3>It's yours without an account</h3>
+          <p>Aithera works fully without signing up. An account only adds support and, later on,
+             licensing — never permission to use your own machine.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------- INTEGRACIONES -->
+    <section class="sec" id="integrations">
+      <header class="sec__head">
+        <span class="eyebrow">Integrations</span>
+        <h2>It connects to what you already use.</h2>
+        <p class="sec__lead">
+          Aithera plugs into the accounts and files you work with every day, and does it locally —
+          connecting something doesn't hand its contents to anyone.
+        </p>
+      </header>
+
+      <div class="igrid">
+        <article class="icard"><h3>Email</h3><p>Reads the noise, surfaces what matters, drafts replies in your voice and follows up on what you're waiting for.</p></article>
+        <article class="icard"><h3>Calendar</h3><p>Sees your week as it really is, prepares what each block needs, and protects the time you set aside.</p></article>
+        <article class="icard"><h3>Files &amp; documents</h3><p>Works with what's already on your disk — finds it, reads it, writes it, keeps it in order.</p></article>
+        <article class="icard"><h3>Notes &amp; projects</h3><p>Keeps the loose ends of a project together so nothing gets stranded in a note you never reopen.</p></article>
+      </div>
+      <p class="ifoot">New connections arrive with each release. Availability depends on the version you're running.</p>
+    </section>
+
+    <!-- ------------------------------------------------------- AUTOPILOT -->
+    <section class="sec" id="autopilot">
+      <div class="apilot">
+        <div class="apilot__body">
+          <span class="eyebrow eyebrow--green">For companies</span>
+          <h2>Aithera Autopilot</h2>
+          <p>
+            Aithera is for your own work. <b>Autopilot</b> is for your company's: we design and build
+            the automations that take repetitive work off your team — fewer errors, less busywork,
+            and hours back every week.
+          </p>
+          <a class="btn btn--green" href="https://autopilot.aithera.tech">
+            Go to Aithera Autopilot
+            <svg><use href="#i-arrow"/></svg>
+          </a>
+          <p class="apilot__note">Free consultation · No commitment · Measurable results</p>
+        </div>
+        <div class="apilot__viz" aria-hidden="true">
+          <img src="assets/img/viz-automate.svg" alt="" width="620" height="400" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------- DOCS -->
+    <section class="sec sec--alt" id="docs">
+      <header class="sec__head">
+        <span class="eyebrow">Docs</span>
+        <h2>The short answers.</h2>
+        <p class="sec__lead">The full guides ship with the first public release. Meanwhile, the things people ask most.</p>
+      </header>
+
+      <div class="faq">
+        <details class="fq"><summary>Do I need an account to use it?</summary>
+          <p>No. Aithera works completely without one. An account adds identified support and, later,
+             licensing — it never gates what you can do on your own computer.</p></details>
+        <details class="fq"><summary>Does my data leave my computer?</summary>
+          <p>The content of your email, calendar, files and conversations is processed on your own
+             machine and is not sent to us. If you turn on the optional diagnostics, what's sent is
+             anonymous technical measurements — never the content of anything you work on — and you
+             can switch it off.</p></details>
+        <details class="fq"><summary>What do I need to run it?</summary>
+          <p>A 64-bit Windows 10 or 11 PC. The everyday features work on ordinary hardware; a more
+             powerful machine simply lets Aithera do more at once.</p></details>
+        <details class="fq"><summary>Do I have to set up the AI part?</summary>
+          <p>No. Everything needed to run comes included and is configured automatically the first
+             time you open it.</p></details>
+        <details class="fq"><summary>Can I get it now?</summary>
+          <p>Aithera is in private beta. Request access below and we'll write when your place is
+             ready.</p></details>
+        <details class="fq"><summary>How do I get help?</summary>
+          <p>Write to <a href="mailto:hola@aithera.tech">hola@aithera.tech</a> and a person will
+             answer.</p></details>
+      </div>
+    </section>
+
+    <!-- ------------------------------------------------------- ABOUT -->
+    <section class="sec" id="about">
+      <header class="sec__head">
+        <span class="eyebrow">About</span>
+        <h2>Why we're building this.</h2>
+      </header>
+      <div class="about">
+        <p class="about__big">
+          The software you use every day should adapt to you — not the other way round.
+        </p>
+        <p>
+          Most tools ask you to learn them. To remember where things live, to explain the same
+          context again and again, to click through the same five steps every Monday. That work
+          never appears on anyone's list, but it eats the hours you meant to spend on something
+          that mattered.
+        </p>
+        <p>
+          Aithera is built from the opposite starting point. It learns how you work, takes the
+          repetition off your hands, and keeps your work on your own machine — because the tool
+          that knows the most about your day shouldn't be the one holding it hostage.
+        </p>
+        <p>
+          It's made by a small team that uses it every day, and shaped by the people testing it
+          with us.
+        </p>
+      </div>
+
+      <div class="access" id="access">
+        <h3>Get Aithera</h3>
+        <p>
+          It's in open beta for Windows 10 and 11, and free to use. No account needed —
+          it runs on your own computer.
+        </p>
+        <a class="btn btn--green" href="download.html">Download for Windows <svg><use href="#i-arrow"/></svg></a>
+        <p style="margin-top:12px; font-size:.86rem">
+          Something not working? Write to
+          <a href="mailto:hola@aithera.tech?subject=Aithera%20beta">hola@aithera.tech</a>.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ------------------------------------------------------- FOOTER -->
+  <footer class="foot">
+    <div class="foot__brand">
+      <span class="foot__name">AITHERA OS</span>
+      <span class="foot__ver">Private beta</span>
+    </div>
+
+    <ul class="foot__traits">
+      <li><svg><use href="#i-lock"/></svg>Secure</li>
+      <li><svg><use href="#i-shield"/></svg>Private</li>
+      <li><svg><use href="#i-device"/></svg>Local first</li>
+      <li><svg><use href="#i-globe"/></svg>Open ecosystem</li>
+    </ul>
+
+    <div class="foot__right">
+      <nav class="foot__links" aria-label="Legal">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="https://autopilot.aithera.tech">Autopilot</a>
+      </nav>
+      <span class="foot__cr">© 2026 Aithera · All rights reserved</span>
+    </div>
+  </footer>
+
+</div>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+node_modules/
+build/node_modules/
+server/data/leads.json
+server/data/leads.csv
+build/*.png
+package-lock.json
+
+# [BW1 2026-08-19] Datos de las cuentas. NUNCA al repositorio: aunque las
+# contraseñas y los tokens van hasheados, la lista de correos registrados es
+# dato personal y no tiene por qué salir de la máquina que sirve la web.
+server/data/users.json
+server/data/sessions.json
+server/data/codes.json
+server/data/*.tmp
+
+# [SEC 2026-08-19] La config REAL lleva el token de administración en claro.
+# Se sube `config.example.json` y el real se queda en la máquina.
+server/config.json

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aithera — Sistema operativo personal de IA</title>
+<meta name="description" content="Aithera es el sistema operativo personal de IA que gestiona tu día a día. Aithera Autopilot lleva esa misma inteligencia a la automatización de tu empresa.">
+<meta name="theme-color" content="#030809">
+<link rel="canonical" href="https://aithera.tech/">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="Aithera">
+<meta property="og:title" content="Aithera — Sistema operativo personal de IA">
+<meta property="og:description" content="Un núcleo de IA que aprende de ti, decide y actúa. Conoce Aithera Autopilot, la versión para empresas.">
+<meta property="og:url" content="https://aithera.tech/">
+<meta property="og:image" content="assets/img/logo.svg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://aithera.tech">
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#inicio">Saltar al contenido principal</a>
+
+<header>
+  <div class="header__inner">
+    <a class="brand" href="/">
+      <img src="assets/img/logo.svg" alt="" width="30" height="30">
+      <span class="brand__name">Aithera</span>
+    </a>
+    <a class="header__cta" href="https://autopilot.aithera.tech" target="_blank" rel="noopener">
+      Aithera Autopilot
+      <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+    </a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="hero__copy">
+      <span class="eyebrow">Sistema operativo personal de IA</span>
+      <h1>Un núcleo de inteligencia que <em>piensa contigo</em> y actúa por ti.</h1>
+      <p class="hero__lead">
+        Aithera aprende de tu día a día, organiza tu trabajo y ejecuta tareas reales
+        por ti. Para empresas, esa misma inteligencia se llama
+        <b>Aithera Autopilot</b>: automatización que trabaja mientras tu negocio crece.
+      </p>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="https://autopilot.aithera.tech" target="_blank" rel="noopener">
+          Descubre Aithera Autopilot
+          <svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__orb">
+      <canvas id="orb" role="img" aria-label="Núcleo de inteligencia Aithera: semilla luminosa rodeada de anillos orbitales"></canvas>
+    </div>
+  </section>
+</main>
+
+<footer>
+  © <span id="y"></span> Aithera · <a href="https://autopilot.aithera.tech" target="_blank" rel="noopener">Aithera Autopilot</a>
+</footer>
+
+<script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+<script src="assets/js/orb.js" defer></script>
+</body>
+</html>

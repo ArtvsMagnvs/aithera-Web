@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your account — Aithera</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/styles.css">
+<style>
+  .ac        { max-width:640px; margin:0 auto; padding:8px 0 40px }
+  .ac h1     { margin:0 0 4px; font-size:1.5rem }
+  .ac__who   { color:var(--muted); font-size:.9rem; margin:0 0 26px }
+  .ac__card  { border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin:0 0 18px }
+  .ac__card h2 { margin:0 0 4px; font-size:1rem }
+  .ac__hint  { color:var(--muted); font-size:.85rem; margin:0 0 14px }
+  .ses       { display:flex; align-items:center; gap:12px; padding:11px 0; border-top:1px solid var(--line) }
+  .ses:first-of-type { border-top:none }
+  .ses__i    { flex:1; min-width:0 }
+  .ses__d    { font-size:.9rem; overflow:hidden; text-overflow:ellipsis; white-space:nowrap }
+  .ses__m    { color:var(--muted); font-size:.78rem }
+  .ses__now  { color:var(--green); font-size:.72rem; border:1px solid rgba(95,224,143,.4);
+               border-radius:20px; padding:2px 9px }
+  .b         { padding:8px 13px; border-radius:8px; border:1px solid var(--line); background:transparent;
+               color:var(--muted); font:inherit; font-size:.83rem; cursor:pointer }
+  .b:hover   { color:var(--ink) }
+  .b--danger { border-color:rgba(255,120,120,.35); color:#ff8f8f }
+  .b--danger:hover { background:rgba(255,120,120,.08) }
+  .ac__danger { border-color:rgba(255,120,120,.3) }
+  .ac__danger h2 { color:#ff8f8f }
+  .ac__in    { width:100%; padding:10px 12px; border-radius:8px; border:1px solid var(--line);
+               background:rgba(255,255,255,.02); color:var(--ink); font:inherit; margin:0 0 10px }
+  .ac__msg   { font-size:.86rem; padding:10px 12px; border-radius:8px; margin:0 0 14px }
+  .ac__err   { color:#ff8f8f; background:rgba(255,120,120,.08); border:1px solid rgba(255,120,120,.25) }
+</style>
+</head>
+<body>
+
+<svg class="sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h13M12.5 5.8 18.7 12l-6.2 6.2" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+</svg>
+
+<div class="shell" style="margin-left:0">
+  <header class="top">
+    <a class="brand" href="index.html">
+      <span class="brand__name">AITHERA</span>
+      <span class="brand__sub">Your intelligent ecosystem</span>
+    </a>
+    <div class="top__right" style="margin-left:auto">
+      <a class="signin" href="index.html">Back to site</a>
+    </div>
+  </header>
+
+  <main class="legal">
+    <div class="ac">
+      <a class="back" href="index.html"><svg><use href="#i-arrow"/></svg>Back</a>
+
+      <h1>Your account</h1>
+      <p class="ac__who" id="who">Loading…</p>
+      <p class="ac__msg ac__err" id="err" hidden></p>
+
+      <section class="ac__card">
+        <h2>Devices and sessions</h2>
+        <p class="ac__hint">
+          Every computer or browser where you signed in. If you see something you
+          don't recognise, close it — and change your password.
+        </p>
+        <div id="sessions"></div>
+        <p style="margin:16px 0 0">
+          <button class="b" id="closeAll" type="button">Sign out everywhere</button>
+        </p>
+      </section>
+
+      <!-- ==================================================================
+           ZONA SENSIBLE, separada a propósito. Borrar la cuenta es
+           irreversible: se pide escribir una palabra, no basta con un clic —
+           el mismo criterio que Aithera aplica en el escritorio.
+      =================================================================== -->
+      <section class="ac__card ac__danger">
+        <h2>Delete your account</h2>
+        <p class="ac__hint">
+          This removes your account and all its sessions from our server. It cannot
+          be undone. It does <b>not</b> touch Aithera on your computer or anything
+          you have there — that data was never ours.
+        </p>
+        <input class="ac__in" id="confirm" placeholder="Type DELETE to confirm" autocomplete="off">
+        <button class="b b--danger" id="del" type="button">Delete my account</button>
+      </section>
+    </div>
+  </main>
+
+  <footer class="foot">
+    <div class="foot__brand">
+      <span class="foot__name">AITHERA OS</span>
+      <span class="foot__ver">Private beta</span>
+    </div>
+    <div class="foot__right">
+      <nav class="foot__links" aria-label="Legal">
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+      </nav>
+      <span class="foot__cr">© 2026 Aithera · All rights reserved</span>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  "use strict";
+  var token = sessionStorage.getItem("aithera_token");
+  var err = document.getElementById("err");
+  var who = document.getElementById("who");
+
+  if (!token) { location.href = "login.html"; return; }
+
+  function auth(url, opts) {
+    opts = opts || {};
+    opts.headers = Object.assign({ "Authorization": "Bearer " + token }, opts.headers || {});
+    return fetch(url, opts);
+  }
+
+  function fallo(msg) { err.hidden = false; err.textContent = msg; }
+
+  function fecha(ts) {
+    try { return new Date(ts * 1000).toLocaleString(); } catch (e) { return "—"; }
+  }
+
+  auth("/api/auth/me")
+    .then(function (r) {
+      // Un token caducado no es un error que mostrar: es volver a entrar.
+      if (r.status === 401) { sessionStorage.removeItem("aithera_token"); location.href = "login.html"; return null; }
+      return r.json();
+    })
+    .then(function (d) { if (d && d.ok) who.textContent = d.user.email; })
+    .catch(function () { fallo("Could not load your account."); });
+
+  function pintarSesiones() {
+    auth("/api/account/sessions")
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        var cont = document.getElementById("sessions");
+        cont.innerHTML = "";
+        if (!d.ok || !d.sessions.length) {
+          cont.innerHTML = '<p class="ac__hint" style="margin:0">No active sessions.</p>';
+          return;
+        }
+        d.sessions.forEach(function (s) {
+          var row = document.createElement("div");
+          row.className = "ses";
+          var info = document.createElement("div");
+          info.className = "ses__i";
+          var d1 = document.createElement("div");
+          d1.className = "ses__d";
+          d1.textContent = s.device || "Unknown device";
+          var d2 = document.createElement("div");
+          d2.className = "ses__m";
+          d2.textContent = (s.ip || "—") + " · last used " + fecha(s.last_seen);
+          info.appendChild(d1); info.appendChild(d2);
+          row.appendChild(info);
+          if (s.current) {
+            var tag = document.createElement("span");
+            tag.className = "ses__now"; tag.textContent = "This one";
+            row.appendChild(tag);
+          } else {
+            var b = document.createElement("button");
+            b.className = "b"; b.type = "button"; b.textContent = "Close";
+            b.addEventListener("click", function () {
+              b.disabled = true;
+              auth("/api/account/sessions/" + s.id, { method: "DELETE" })
+                .then(pintarSesiones)
+                .catch(function () { fallo("Could not close that session."); });
+            });
+            row.appendChild(b);
+          }
+          cont.appendChild(row);
+        });
+      })
+      .catch(function () { fallo("Could not load your sessions."); });
+  }
+  pintarSesiones();
+
+  document.getElementById("closeAll").addEventListener("click", function () {
+    auth("/api/account/sessions", { method: "DELETE" }).then(function () {
+      sessionStorage.removeItem("aithera_token");
+      location.href = "login.html";
+    });
+  });
+
+  document.getElementById("del").addEventListener("click", function () {
+    if (document.getElementById("confirm").value.trim().toUpperCase() !== "DELETE") {
+      fallo('Type DELETE in the box to confirm.');
+      return;
+    }
+    auth("/api/account", { method: "DELETE" }).then(function () {
+      sessionStorage.removeItem("aithera_token");
+      location.href = "index.html";
+    });
+  });
+})();
+</script>
+</body>
+</html>

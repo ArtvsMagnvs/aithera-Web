@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 148"><rect width="120" height="148" fill="#040c0d"/>
+  <defs>
+    <linearGradient id="as1" x1="60" y1="6" x2="60" y2="142" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8ff0e2"/>
+      <stop offset=".5" stop-color="#3ad8c6"/>
+      <stop offset="1" stop-color="#2fe08f"/>
+    </linearGradient>
+    <linearGradient id="as2" x1="60" y1="26" x2="60" y2="122" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#b6fff0"/>
+      <stop offset="1" stop-color="#45f0a5"/>
+    </linearGradient>
+    <radialGradient id="acore" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset=".28" stop-color="#c8ffe4"/>
+      <stop offset=".55" stop-color="#3ff09a"/>
+      <stop offset="1" stop-color="#3ff09a" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path d="M60.0,6.0 C79.136,31.840000000000003 100.0,54.959999999999994 100.0,74.0 C100.0,93.04 79.136,116.16 60.0,142.0 C40.864,116.16 20.0,93.04 20.0,74.0 C20.0,54.959999999999994 40.864,31.840000000000003 60.0,6.0 Z" stroke="url(#as1)" stroke-width="2" opacity=".62"/>
+  <path d="M60.0,26.0 C73.156,44.24 87.5,60.56 87.5,74.0 C87.5,87.44 73.156,103.75999999999999 60.0,122.0 C46.844,103.75999999999999 32.5,87.44 32.5,74.0 C32.5,60.56 46.844,44.24 60.0,26.0 Z" stroke="url(#as2)" stroke-width="1.7" opacity=".85"/>
+  <path d="M60.0,46.0 C67.4152,56.64 75.5,66.16 75.5,74.0 C75.5,81.84 67.4152,91.36 60.0,102.0 C52.5848,91.36 44.5,81.84 44.5,74.0 C44.5,66.16 52.5848,56.64 60.0,46.0 Z" stroke="#8dffd0" stroke-width="1.3" opacity=".55"/>
+  <path d="M60 6 60 30 M60 118 60 142" stroke="#9dfbe0" stroke-width="1.4" opacity=".45" stroke-linecap="round"/>
+  <circle cx="60" cy="74" r="17" fill="url(#acore)" opacity=".55"/>
+  <circle cx="60" cy="74" r="6.4" fill="url(#acore)"/>
+  <circle cx="60" cy="74" r="2.4" fill="#ffffff"/>
+</svg>
